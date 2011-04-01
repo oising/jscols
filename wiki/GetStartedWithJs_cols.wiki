@@ -1,3 +1,4 @@
+#labels Featured
 #How to get started with the js_cols library in 60 seconds
 
 = Get started with js_cols =
@@ -33,5 +34,3 @@ map.insert(something);
 }}}
 
 By using the `js_cols.require` function, dependencies are managed such that classes on which other classes depend, are automatically included. Furthermore redundant inclusions and circular references are avoided.
-
-
