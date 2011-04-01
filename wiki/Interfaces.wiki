@@ -1,5 +1,5 @@
+#summary The interface hierarchy of the js_cols library
 #labels Featured
-#The interface hierarchy of the js_cols library
 
 = Interfaces =
 
