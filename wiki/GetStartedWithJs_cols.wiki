@@ -1,0 +1,37 @@
+#How to get started with the js_cols library in 60 seconds
+
+= Get started with js_cols =
+
+To get started with the js_cols library, download the latest version from http://code.google.com/p/jscols/downloads/list
+Unzip the file and place the js_cols folder in the home folder of your application. Include the file js_cols/base.js in a script tag:
+<script src="js_cols/base.js"></script>
+
+This will define the variable js_cols in the global name space. All constructors of the js_cols library are properties of js_cols. Furthermore, the function js_cols.require is defined in the base.js file. This function is used to include the desired classes in your html document like this:
+{{{
+<script>   
+js_cols.require('js_cols.LinkedList'); 
+js_cols.require('js_cols.HashMap'); 
+</script>
+}}}
+
+*It is important that the calls to js_cols.require are placed in their own script tag, which should be closed before writing any code that uses the required parts of the library.* 
+
+==Correct usage:==
+
+{{{
+<script src="js_cols/base.js"></script>
+<script>   
+js_cols.require('js_cols.LinkedList'); 
+js_cols.require('js_cols.HashMap'); 
+</script>
+<script>   
+var map = new js_cols.HashMap();
+map.insert(something);
+..... do work.......
+............
+</script>
+}}}
+
+By using the `js_cols.require` function, dependencies are managed such that classes on which other classes depend, are automatically included. Furthermore redundant inclusions and circular references are avoided.
+
+
