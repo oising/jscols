@@ -1,5 +1,5 @@
+#summary How to get started with the js_cols library in 60 seconds
 #labels Featured
-#How to get started with the js_cols library in 60 seconds
 
 = Get started with js_cols =
 
