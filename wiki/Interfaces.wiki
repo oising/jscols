@@ -1,0 +1,36 @@
+#The interface hierarchy of the js_cols library
+
+= Interfaces =
+
+Even though JavaScript does not support interfaces, the js_cols library defines some imaginary interfaces. This makes it easy to substitute one data structure with another without making further code changes.
+For example, this might be if you initially used a Set and found out that you needed duplicates to be allowed.Then you would want to substitute with a Bag. Or if you started out using a SortedSet (based on Red-Black or (a, b) trees) and you found out that ordering did not matter after all. Then you would want to switch to a HashSet as this would improve performance on insertions and deletions from O(log,,n,,) to O(1).
+
+==The interface hierarchy:==
+Available methods for each interface are listed in the diagram, and interfaces inherit methods from their "parents" and "grand parents".
+
+
+
+http://jscols.com/wp-content/uploads/InterFacesAll72.png
+
+
+<br><br>
+
+==Implementing classes:==
+
+|| *Interface* || *implementing classes*||
+|| Collection ||ABTreeSet, ABTreeBag, RedBlackSet, RedBlackBag, HashSet, HashBag, LinkedList, Stack, Queue||
+|| Set || ABTreeSet, RedBlackSet, HashSet ||
+||Bag || ABTreeBag, RedBlackBag, HashBag ||
+||SortedSet || ABTreeSet, RedBlackSet ||
+|| SortedBag || ABTreeBag, RedBlackBag ||
+|| List || LinkedList ||
+||Queue || Queue ||
+|| Stack || Stack ||
+|| Dictionary || ABTreeMap, ABTreeMultiMap, RedBlackMap, RedBlackMultiMap, HashMap, HashMultiMap, LinkedHashMap||
+||Map || ABTreeMap, RedBlackMap, HashMap || 
+||MultiMap|| ABTreeMultiMap, RedBlackMultiMap, HashMultiMap||
+||LinkedMap|| LinkedHashMap||
+||PriorityQueue|| IntervalHeap ||
+
+In general, use RedBlack Sets and Maps rather than ABTrees, as these are faster in normal web applications.
+ABTrees has been included as they can produce shallower trees, which are more cache effient when the data structure extends internal memory. They might be better than RedBlack trees in some server-side applications.
